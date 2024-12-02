@@ -1,9 +1,13 @@
 import style from './Button.module.css';
 
-function Button() {
+function Button(props) {
     return (
-        <a className={style.Button} href="">
-            Leggi di più
+        <a
+            className={`${style.Button} ${style[props.color]}`}
+            href="#"
+            onClick={props.onClick}
+        >
+            {props.value}
         </a>
     );
 }

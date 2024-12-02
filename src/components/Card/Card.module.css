@@ -20,6 +20,11 @@
     margin: 0.8rem 0;
 }
 
+.ButtonWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
 .TagList {
     display: flex;
     gap: 1rem;

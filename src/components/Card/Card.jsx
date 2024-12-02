@@ -20,7 +20,16 @@ function Card(props) {
                     ))}
                 </div>
                 <p>{props.content}</p>
-                <Button></Button>
+                <div className={style.ButtonWrapper}>
+                    <Button value={'Leggi di più'} color={'Blue'}></Button>
+                    <Button
+                        onClick={() => {
+                            props.callback(props.id);
+                        }}
+                        value={'Elimina'}
+                        color={'Red'}
+                    ></Button>
+                </div>
             </div>
         </div>
     );

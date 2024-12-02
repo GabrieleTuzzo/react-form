@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 function App() {
     const [drawnPosts, setPosts] = useState(posts);
-    const [postName, setPostName] = useState('Titolo');
+    const [postName, setPostName] = useState('');
 
     const tags = [];
     drawnPosts.forEach((post) => {
@@ -29,6 +29,12 @@ function App() {
         setPosts([...drawnPosts, newPost]);
     };
 
+    const handleDelete = (id) => {
+        const updatedPosts = drawnPosts.filter((post) => post.id !== id);
+        console.log(id, drawnPosts[0].id);
+        setPosts([...updatedPosts]);
+    };
+
     return (
         <>
             <main>
@@ -43,10 +49,16 @@ function App() {
                                     return <span key={i}>{tag}</span>;
                                 })}
                             </div>
-                            <form onSubmit={handleSubmit}>
+                            <form
+                                onSubmit={
+                                    postName !== ''
+                                        ? handleSubmit
+                                        : function () {}
+                                }
+                            >
                                 <input
                                     type="text"
-                                    value={postName}
+                                    placeholder={'Titolo post...'}
                                     onChange={(e) => {
                                         setPostName(e.target.value);
                                     }}
@@ -60,11 +72,13 @@ function App() {
                                     <div className="col-6">
                                         <Card
                                             key={post.id}
+                                            id={post.id}
                                             title={post.title}
                                             image={post.image}
                                             content={post.content}
                                             tags={post.tags}
                                             published={post.published}
+                                            callback={handleDelete}
                                         ></Card>
                                     </div>
                                 )
