@@ -9,7 +9,8 @@ function App() {
     const [postName, setPostName] = useState('');
 
     const tags = [];
-    drawnPosts.forEach((post) => {
+    const publishedPosts = drawnPosts.filter((post) => post.published === true);
+    publishedPosts.forEach((post) => {
         post.tags.forEach((tag) => {
             !tags.includes(tag) && tags.push(tag);
         });
@@ -43,7 +44,7 @@ function App() {
                         <div className="col">
                             <h1 className="main-title">Il mio blog</h1>
                         </div>
-                        <div className="col">
+                        <div className="col main-tags-wrap">
                             <div className="tags-container">
                                 {tags.map((tag, i) => {
                                     return <span key={i}>{tag}</span>;

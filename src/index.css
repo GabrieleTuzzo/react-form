@@ -19,6 +19,10 @@ ol {
     list-style: none;
 }
 
+form {
+    align-content: center;
+}
+
 /* Layout */
 .container {
     max-width: 1024px;
@@ -64,4 +68,9 @@ main {
     padding: 0 1rem;
     line-height: 1.4rem;
     border-radius: 1rem;
+}
+
+.main-tags-wrap {
+    display: flex;
+    justify-content: space-between;
 }
