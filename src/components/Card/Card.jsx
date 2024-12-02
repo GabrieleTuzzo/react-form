@@ -23,9 +23,7 @@ function Card(props) {
                 <div className={style.ButtonWrapper}>
                     <Button value={'Leggi di più'} color={'Blue'}></Button>
                     <Button
-                        onClick={() => {
-                            props.callback(props.id);
-                        }}
+                        onClick={props.callback}
                         value={'Elimina'}
                         color={'Red'}
                     ></Button>

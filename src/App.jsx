@@ -72,13 +72,14 @@ function App() {
                                     <div className="col-6">
                                         <Card
                                             key={post.id}
-                                            id={post.id}
                                             title={post.title}
                                             image={post.image}
                                             content={post.content}
                                             tags={post.tags}
                                             published={post.published}
-                                            callback={handleDelete}
+                                            callback={() =>
+                                                handleDelete(post.id)
+                                            }
                                         ></Card>
                                     </div>
                                 )
