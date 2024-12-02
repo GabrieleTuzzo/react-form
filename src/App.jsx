@@ -19,7 +19,7 @@ function App() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const newPost = {
-            id: posts.length + 1,
+            id: drawnPosts.length + 1,
             title: postName,
             published: true,
             tags: [],
@@ -32,7 +32,6 @@ function App() {
 
     const handleDelete = (id) => {
         const updatedPosts = drawnPosts.filter((post) => post.id !== id);
-        console.log(id, drawnPosts[0].id);
         setPosts([...updatedPosts]);
     };
 
